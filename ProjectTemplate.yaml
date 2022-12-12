@@ -6,7 +6,7 @@ project-{your-project-purpose *}:
   environment: { dev | prd *}
   host_project:
     type: { hub | spoke1/2/3 * }
-    region: { us-east4 | us-west2 | europe-west4 | asia-southeast1 | asia-east2 | asia-south1 }
+    region: { us-east4 | us-west2 | us-central1 }
   owner: { group:group.email@company.com *}
   wbs_code: { xcode-format e.g. X-AB12-C345 *}
   criticality: { l1 | l2 | l3 | l4 *}
@@ -33,5 +33,5 @@ project-{your-project-purpose *}:
   services:
     - { additional-service-to-be-activated e.g. osconfig.googleapis.com }
   cmek:
-    region: { us-east4 | us-west2 | europe-west3 | europe-west4 | asia-southeast1 | asia-east2 | asia-south1 }
+    region: { us-east4 | us-west2 | us-central1 }
     rotation_period: {in-seconds ending s default - 90 days, max 1 year}
