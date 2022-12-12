@@ -1,5 +1,6 @@
 # Coalfire-Challenge
-Challenge from coalfire
+Challenge for coalfire.
+
 These files should be the foundation to the IaC part of question 3 of Scenario 1. 
 I have created two templates of my own; the project template as well as the VM compute engine instance. 
 Please feel free to contact me via email at riazsaim@gmail.com. I am also available to explain my code in a call. 
