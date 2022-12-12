@@ -1,0 +1,36 @@
+project-{your-project-purpose *}:
+  name: {your-project-max-18-alphanumeric-characters *}
+  continent: { ams | apac | emea | india *}
+  data_class: { cnf | int | sec | nsa | sandbox *}
+  environment: { dev | prd *}
+  host_project:
+    type: { hub | spoke1/2/3 * }
+    region: { us-east4 | us-west2 | europe-west4 | asia-southeast1 | asia-east2 | asia-south1 }
+  owner: { group:group.email@company.com *}
+  wbs_code: { xcode-format e.g. X-AB12-C345 *}
+  criticality: { l1 | l2 | l3 | l4 *}
+  m4ce: { false | true : default - false }
+  iam_migration_roles: { false | true : default - false }
+  iam_user_roles:
+    - user: { additional-user-email@company.com }
+      roles:
+        - { associated-roles e.g. roles/viewer }
+  iam_group_roles:
+    - group: { additional-group-email@company.com }
+      roles:
+        - { associated-roles e.g. roles/viewer }
+  iam_sa_roles:
+    - sa: { any-required-service-account-name e.g. security-admin }
+      roles:
+        - { associated-roles e.g. roles/viewer }
+      generate_key: { false | true }
+  iam_remote_sa_roles:
+    - sa: { external-service-account-email }
+      roles:
+        - { associated-roles e.g. roles/viewer }
+      generate_key: { false | true }
+  services:
+    - { additional-service-to-be-activated e.g. osconfig.googleapis.com }
+  cmek:
+    region: { us-east4 | us-west2 | europe-west3 | europe-west4 | asia-southeast1 | asia-east2 | asia-south1 }
+    rotation_period: {in-seconds ending s default - 90 days, max 1 year}
