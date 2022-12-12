@@ -1,0 +1,19 @@
+project-web-app-alive:
+  name: web-app-alive
+  continent: ams
+  data_class: sandbox
+  environment: dev
+  host_project:
+    type: hub
+    region: us-central1
+  owner: group:I_EXT_GCP_ENGINEERING@company.com
+  wbs_code: X-SC01-SRE1
+  criticality: l4
+  services:
+    - compute.googleapis.com
+    - logging.googleapis.com
+    -
+  iam_sa_roles:
+    - sa: sre-poc
+      roles:
+        - roles/viewer
