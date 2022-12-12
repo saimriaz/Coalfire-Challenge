@@ -16,7 +16,6 @@ project-web-app-alive:
     - trace.googleapis.com
     - cloudsql.googleapis.com
     - clouddns.googleapis.com
-
   iam_sa_roles:
     - sa: sre-poc
       roles:
