@@ -1,0 +1,69 @@
+vm-{purpose-short-name}:
+  location:
+    continent: { ams | apac | emea }
+    data_class: { cnf | int | sec | sandbox }
+    environment: { dev | prd | stg }
+    project: project-{template-project}
+  instances:
+    - name: { instance-name - }
+      region: { us-east4 | us-west2 | us-central1 }
+      zone: { a | b | c }
+      instance_type: { machine type }
+      os_type: { lnx | win }
+      reference_instance_template: {template name}
+      network_interfaces:
+        - name: { interface-name *}
+          subnetwork: { subnet-prefix }
+          addresses:
+            internal: [ { host ip number for static ip's }]
+            external: [ { ip address } ]
+          alias_ips:
+            - cidr: { subnet cidr }
+              name: { subnet name for cidr for primary address subnet set to blank or exact subnet name or remove this line }
+      network_tags:
+        egress_internet: { false | true }
+        join_ad: { false | true - obsolete do not use retained for backward compatibility }
+      join_ad:
+        enabled: { false | true - default false }
+        a_admins:
+          - { admin account e.g a_adminaccount }
+        groups:
+          - { group email e.g. I_EXT_GCP_SRE@company.com }
+        oupath: { OU details depending on os type e.g. - default blank
+                  for Linux: OU=Linux,OU=Servers,OU=GCP,OU=Services,
+                  for Windows 2019: OU=Win-2019,OU=Servers,OU=GCP,OU=Services }
+      disks:
+        - name: { disk name }
+          size: { size in GB }
+          image: { image path }
+          options:
+            auto_delete: { false | true }
+            mode: { READ_WRITE | READ_ONLY | null }
+            source: { source name }
+            type: { null | pd-standard | pd-balanced | pd-ssd | local-ssd }
+            pre_configured: { false | true : default - false }
+      quantity: { number of instances - default 1 }
+      auto_add_name_suffix: { true | false - default true - add suffix to GCE / VM name - can not be combined with quantity }
+      use_operation_policy: { true | false * - use operation_policy }
+      operation_policy: { operation policy name - require when use_operation_policy is set to true }
+      snapshot_policy: { snapshot policy name }
+      cmek:
+        key_ring: {key ring name - default key-ring}
+        key: {key name - default key}
+      end_of_life: { DD-MMM-YYYY - default 31-Dec-2099 }
+      shield:
+        secure_boot: { false | true - default true }
+        vtpm: { false | true - default true }
+        integrity_monitoring: { false | true - default true }
+      advanced_machine_features:
+        enable_nested_virtualization: { true | false - default false }
+        threads_per_core: { number - the number of threads per physical core. }
+      startup_script: {startup script commands - default : empty string}
+      options:
+        allow_stopping_for_update: { true | false }
+        deletion_protection: { true | false }
+        preemptible: { true | false }
+      advanced_machine_features:
+        enable_nested_virtualization: { true | false - default false }
+        threads_per_core: { number - the number of threads per physical core. }
+  
