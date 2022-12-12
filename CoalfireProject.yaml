@@ -6,14 +6,18 @@ project-web-app-alive:
   host_project:
     type: hub
     region: us-central1
-  owner: group:I_EXT_GCP_ENGINEERING@company.com
+  owner: group:I_EXT_GCP_SRE@company.com
   wbs_code: X-SC01-SRE1
   criticality: l4
   services:
     - compute.googleapis.com
     - logging.googleapis.com
-    -
+    - monitoring.googleapis.com
+    - trace.googleapis.com
+    - cloudsql.googleapis.com
+    - clouddns.googleapis.com
+
   iam_sa_roles:
     - sa: sre-poc
       roles:
-        - roles/viewer
+        - roles/jobuser
