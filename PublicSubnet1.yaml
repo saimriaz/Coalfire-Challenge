@@ -1,4 +1,4 @@
-vm-public-subnet-1:
+bastion1:
   location:
     continent: ams
     data_class: sandbox
@@ -14,7 +14,7 @@ vm-public-subnet-1:
       os_type: win
       network_interfaces:
         - name: nic0
-          subnetwork: 
+          subnetwork: [10.1.0.0/24]
           nat: false
           addresses:
             internal: []
