@@ -6,7 +6,7 @@ DB1:
     project: project-web-app-alive
   instances:
     - name: DB1
-      database_version: POSTGRESQL_11
+      database_version: POSTGRES_11
       region: "us-central1"
       zone: "us-central1-b"
       tier: "db-f1-micro"
