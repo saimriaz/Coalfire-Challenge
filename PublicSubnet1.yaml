@@ -1,0 +1,28 @@
+vm-public-subnet-1:
+  location:
+    continent: ams
+    data_class: sandbox
+    environment: dev
+    project: project-web-app-alive
+  instances:
+    - name: bastion1
+      region: us-central1
+      zone: b
+    - name: bastion1
+      region: us-central1
+      instance_type: e2-standard-4
+      os_type: win
+      network_interfaces:
+        - name: nic0
+          subnetwork: 
+          nat: false
+          addresses:
+            internal: []
+            external: []
+      dns_config:
+        zone: pcs-company-net
+      boot_disk:
+        image: projects/win/2019
+        type: pd-standard
+        size: 50
+
