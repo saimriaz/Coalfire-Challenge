@@ -1,0 +1,21 @@
+lb-https:
+  location:
+    continent: ams
+    data_class: sandbox
+    environment: dev
+    project: project-web-app-alive
+  internal:
+    - name: lb-https
+      region: us-central1
+      subnetwork: public-subnet-1, public-subnet-2
+      protocol: HTTPS
+      frontend:
+        rules:
+          - name: rule-1
+            ip_address: [10.1.2.0/24]
+            ports: [443]
+      backend:
+        health_check:
+          protocol: TCP
+          port: 443
+          port_name: lb-https
