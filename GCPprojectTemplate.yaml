@@ -1,3 +1,4 @@
+# this is the project template 
 project-{your-project-purpose *}:
   name: {your-project-max-18-alphanumeric-characters *}
   continent: { ams | apac | emea | india *}
